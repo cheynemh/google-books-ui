@@ -1,6 +1,4 @@
 // https://www.googleapis.com/books/v1/volumes?q=search+terms
-// bookSearch = #input
-// getResults = #button
 
 const GOOGLEBOOKS_URL = "https://www.googleapis.com/books/v1/volumes";
 
@@ -23,7 +21,7 @@ button.addEventListener("click", async (event) => {
     // empty error code
     const keyword = input.value;
     if (!keyword) {
-        alert("everybody's looking for something.");
+        alert("Everybody's looking for something.");
     }
 
     // get search results
@@ -34,31 +32,35 @@ button.addEventListener("click", async (event) => {
     const listItems = books.map((book) => {
         const info = document.createElement("li");
         const bookImg = document.createElement("img");
+
         bookImg.src = `${book.volumeInfo.imageLinks.smallThumbnail}`;
+        // if (bookImg.src === undefined) {
+        //     bookImg.src = "https://fakeimg.pl/400x500";
+        // } else {
+        //     bookImg.src = `${book.volumeInfo.imageLinks.thumbnail}`;
+        // }
+
         const bookTitle = `${book.volumeInfo.title} by `;
-        const bookAuthor = `${book.volumeInfo.authors}`;
+        const bookAuthor = `${book.volumeInfo.authors}` + " ";
+        const bookDesc = `${book.volumeInfo.description}`;
         const textTitle = document.createTextNode(bookTitle);
         const textAuthor = document.createTextNode(bookAuthor);
-        // const bookDesc = `${book.volumeInfo.description}`;
-        // const textDesc = document.createTextNode(bookDesc);
+        const textDesc = document.createTextNode(bookDesc);
+        const linebreak = document.createElement("br");
 
         info.appendChild(bookImg);
         info.appendChild(textTitle);
         info.appendChild(textAuthor);
-        // info.appendChild(textDesc);
+        info.appendChild(linebreak);
+        info.appendChild(textDesc);
         return info;
-
-        // const desc = document.createElement("li");
-        // const bookDesc = `${book.volumeInfo.description}`;
-        // const textDesc = document.createTextNode(bookDesc);
-        // desc.appendChild(textDesc);
-        // return desc;
     });
 
     // append search results
-    const grid = document.querySelector(".container__grid--books");
+    const grid = document.querySelector(".container__grid");
     const append = (parent) => (child) => parent.appendChild(child);
-    // listItems.forEach(append(grid));
+    listItems.forEach(append(grid));
+
     // refresh results instead of append
     if (grid.innerHTML) {
         grid.innerHTML = "";

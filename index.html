@@ -5,24 +5,39 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css" />
-        <title>fetch book test</title>
+        <script src="https://unpkg.com/phosphor-icons"></script>
+        <title>google books</title>
     </head>
     <body>
+        <h1>GOOGLE BOOKS UI</h1>
         <div class="search">
             <input
                 id="searchInput"
                 type="text"
                 placeholder="search by title, author or genre"
             />
-            <button id="searchButton">search</button>
+            <button id="searchButton">
+                <i class="ph-magnifying-glass"></i>
+            </button>
         </div>
 
         <div class="container">
             <div class="container__grid">
-                <ul class="container__grid--books"></ul>
+                <ul class="container__grid--info"></ul>
+                <!-- <div class="container__grid--img"></div> -->
+                <!-- <div class="container__grid--info"></div> -->
+                <!-- <div class="container__grid--desc"></div> -->
             </div>
         </div>
-
         <script src="./script.js"></script>
     </body>
+
+    <footer>
+        <p>
+            cmh &copy;
+            <script type="text/javascript">
+                document.write(new Date().getFullYear());
+            </script>
+        </p>
+    </footer>
 </html>
