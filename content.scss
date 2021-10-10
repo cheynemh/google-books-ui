@@ -1,0 +1,64 @@
+@use "palette.scss";
+
+.container {
+    background: palette.$container;
+    margin: 5vh auto;
+    width: 55vw;
+    height: 70vh;
+    padding: 10px;
+    border: 1px solid palette.$borders;
+    box-shadow: 15px 15px palette.$shadow;
+
+    &__grid {
+        // padding: 20px;
+        height: inherit;
+        overflow-y: scroll;
+        // overflow-y: scroll;
+        // border: 1px solid orange;
+
+        &--books {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            // // grid-gap: 5%;
+            // display: flex;
+            // flex-flow: row wrap;
+            // align-items: center;
+
+            @media only screen and (max-width: 1440px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media only screen and (max-width: 1070px) {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+ul {
+    list-style: none;
+
+    & img {
+        width: 100%;
+        max-width: 300px;
+        padding-bottom: 20px;
+        @media only screen and (max-width: 1070px) {
+            padding-right: 30px;
+        }
+    }
+}
+
+li {
+    // border: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+    @media only screen and (max-width: 1070px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

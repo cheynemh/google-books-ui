@@ -1,0 +1,21 @@
+@use "palette.scss";
+@use "searchbar.scss";
+@use "content.scss";
+@use "scrollbar.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: monospace;
+    // background: url("../img/a.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: palette.$background;
+    width: 90vw;
+    height: 90vh;
+    margin: 5vh auto;
+}
